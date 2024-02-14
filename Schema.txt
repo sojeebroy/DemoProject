@@ -1,0 +1,88 @@
+USE [DemoProject]
+GO
+/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 2/14/2024 12:41:36 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[__EFMigrationsHistory](
+	[MigrationId] [nvarchar](150) NOT NULL,
+	[ProductVersion] [nvarchar](32) NOT NULL,
+ CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY CLUSTERED 
+(
+	[MigrationId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Classes]    Script Date: 2/14/2024 12:41:36 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Classes](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](max) NOT NULL,
+	[CreateDate] [datetime2](7) NOT NULL,
+	[ModificationDate] [datetime2](7) NULL,
+ CONSTRAINT [PK_Classes] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Students]    Script Date: 2/14/2024 12:41:36 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Students](
+	[Id] [uniqueidentifier] NOT NULL,
+	[Name] [nvarchar](max) NOT NULL,
+	[Gender] [int] NOT NULL,
+	[DOB] [datetime2](7) NOT NULL,
+	[ClassId] [int] NOT NULL,
+	[CreateDate] [datetime2](7) NOT NULL,
+	[ModificationDate] [datetime2](7) NULL,
+ CONSTRAINT [PK_Students] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20240213093101_Initial Migration', N'6.0.26')
+GO
+SET IDENTITY_INSERT [dbo].[Classes] ON 
+
+INSERT [dbo].[Classes] ([Id], [Name], [CreateDate], [ModificationDate]) VALUES (1, N'One', CAST(N'2024-02-13T00:00:00.0000000' AS DateTime2), NULL)
+INSERT [dbo].[Classes] ([Id], [Name], [CreateDate], [ModificationDate]) VALUES (2, N'Two', CAST(N'2024-02-13T00:00:00.0000000' AS DateTime2), NULL)
+INSERT [dbo].[Classes] ([Id], [Name], [CreateDate], [ModificationDate]) VALUES (3, N'Three', CAST(N'2024-02-13T00:00:00.0000000' AS DateTime2), NULL)
+INSERT [dbo].[Classes] ([Id], [Name], [CreateDate], [ModificationDate]) VALUES (4, N'Four', CAST(N'2024-02-13T00:00:00.0000000' AS DateTime2), NULL)
+INSERT [dbo].[Classes] ([Id], [Name], [CreateDate], [ModificationDate]) VALUES (5, N'Five', CAST(N'2024-02-13T00:00:00.0000000' AS DateTime2), NULL)
+INSERT [dbo].[Classes] ([Id], [Name], [CreateDate], [ModificationDate]) VALUES (6, N'Six', CAST(N'2024-02-13T00:00:00.0000000' AS DateTime2), NULL)
+INSERT [dbo].[Classes] ([Id], [Name], [CreateDate], [ModificationDate]) VALUES (7, N'Seven', CAST(N'2024-02-13T00:00:00.0000000' AS DateTime2), NULL)
+INSERT [dbo].[Classes] ([Id], [Name], [CreateDate], [ModificationDate]) VALUES (8, N'Eight', CAST(N'2024-02-13T00:00:00.0000000' AS DateTime2), NULL)
+INSERT [dbo].[Classes] ([Id], [Name], [CreateDate], [ModificationDate]) VALUES (9, N'Nine', CAST(N'2024-02-13T00:00:00.0000000' AS DateTime2), NULL)
+INSERT [dbo].[Classes] ([Id], [Name], [CreateDate], [ModificationDate]) VALUES (10, N'Ten', CAST(N'2024-02-13T00:00:00.0000000' AS DateTime2), NULL)
+INSERT [dbo].[Classes] ([Id], [Name], [CreateDate], [ModificationDate]) VALUES (11, N'Eleven', CAST(N'2024-02-13T00:00:00.0000000' AS DateTime2), NULL)
+INSERT [dbo].[Classes] ([Id], [Name], [CreateDate], [ModificationDate]) VALUES (12, N'Twelve', CAST(N'2024-02-13T00:00:00.0000000' AS DateTime2), NULL)
+SET IDENTITY_INSERT [dbo].[Classes] OFF
+GO
+INSERT [dbo].[Students] ([Id], [Name], [Gender], [DOB], [ClassId], [CreateDate], [ModificationDate]) VALUES (N'618fc3fd-82bf-4f03-ba26-274365e007c5', N'Sojeeb Roy Parho', 1, CAST(N'1999-01-09T00:00:00.0000000' AS DateTime2), 3, CAST(N'2024-02-13T23:52:48.0344865' AS DateTime2), CAST(N'2024-02-13T23:56:47.8636591' AS DateTime2))
+INSERT [dbo].[Students] ([Id], [Name], [Gender], [DOB], [ClassId], [CreateDate], [ModificationDate]) VALUES (N'28574de7-1936-4834-9904-292eac5a6253', N'Partho', 1, CAST(N'1111-11-11T00:00:00.0000000' AS DateTime2), 9, CAST(N'2024-02-13T19:26:34.9891310' AS DateTime2), NULL)
+INSERT [dbo].[Students] ([Id], [Name], [Gender], [DOB], [ClassId], [CreateDate], [ModificationDate]) VALUES (N'd1acd2fe-6e58-42ba-aed2-53ef382e9973', N'Partho', 1, CAST(N'1999-01-02T00:00:00.0000000' AS DateTime2), 11, CAST(N'2024-02-13T19:04:48.1664798' AS DateTime2), NULL)
+INSERT [dbo].[Students] ([Id], [Name], [Gender], [DOB], [ClassId], [CreateDate], [ModificationDate]) VALUES (N'3425db8c-8d3b-42cd-8ae3-a666d92f9364', N'Sojeeb', 1, CAST(N'1999-01-01T00:00:00.0000000' AS DateTime2), 9, CAST(N'2024-02-13T19:17:12.6772494' AS DateTime2), NULL)
+INSERT [dbo].[Students] ([Id], [Name], [Gender], [DOB], [ClassId], [CreateDate], [ModificationDate]) VALUES (N'7c2f8709-c31c-42f4-ae2a-afc74e8cee6b', N'Partho', 1, CAST(N'1111-11-11T00:00:00.0000000' AS DateTime2), 12, CAST(N'2024-02-13T19:30:33.9306336' AS DateTime2), NULL)
+INSERT [dbo].[Students] ([Id], [Name], [Gender], [DOB], [ClassId], [CreateDate], [ModificationDate]) VALUES (N'd513c25e-733d-45e1-a169-c34ae2f18bdf', N'Sojeeb', 1, CAST(N'1999-03-02T00:00:00.0000000' AS DateTime2), 11, CAST(N'2024-02-13T19:24:37.5468816' AS DateTime2), NULL)
+INSERT [dbo].[Students] ([Id], [Name], [Gender], [DOB], [ClassId], [CreateDate], [ModificationDate]) VALUES (N'2fedf425-37c0-4768-b218-d4d7e1616226', N'Miss Meghna ', 2, CAST(N'1999-11-01T00:00:00.0000000' AS DateTime2), 1, CAST(N'2024-02-13T18:56:57.8842191' AS DateTime2), CAST(N'2024-02-13T23:55:14.7698103' AS DateTime2))
+INSERT [dbo].[Students] ([Id], [Name], [Gender], [DOB], [ClassId], [CreateDate], [ModificationDate]) VALUES (N'9aa1e880-ece1-4eb1-ac8d-d535d460f096', N'Taheer', 1, CAST(N'2000-03-31T00:00:00.0000000' AS DateTime2), 5, CAST(N'2024-02-13T18:48:46.1237529' AS DateTime2), NULL)
+INSERT [dbo].[Students] ([Id], [Name], [Gender], [DOB], [ClassId], [CreateDate], [ModificationDate]) VALUES (N'2473893d-4c41-4f34-9758-e1d58a81f0fd', N'Partho', 1, CAST(N'2010-11-11T00:00:00.0000000' AS DateTime2), 12, CAST(N'2024-02-13T19:30:17.6449427' AS DateTime2), CAST(N'2024-02-13T23:55:37.8009597' AS DateTime2))
+INSERT [dbo].[Students] ([Id], [Name], [Gender], [DOB], [ClassId], [CreateDate], [ModificationDate]) VALUES (N'af9d6646-1955-4917-ae49-fa7d48e22780', N'Sojeeb', 1, CAST(N'2000-09-01T00:00:00.0000000' AS DateTime2), 8, CAST(N'2024-02-13T18:41:00.9079765' AS DateTime2), NULL)
+INSERT [dbo].[Students] ([Id], [Name], [Gender], [DOB], [ClassId], [CreateDate], [ModificationDate]) VALUES (N'081a6e3f-8d64-44ca-812a-fc16fa69b4b1', N'Sojeeb', 1, CAST(N'1999-03-07T00:00:00.0000000' AS DateTime2), 11, CAST(N'2024-02-13T19:19:02.4966701' AS DateTime2), NULL)
+INSERT [dbo].[Students] ([Id], [Name], [Gender], [DOB], [ClassId], [CreateDate], [ModificationDate]) VALUES (N'5c8c8e40-071f-4d46-9b39-fe0535db7739', N'Meghna', 2, CAST(N'1999-11-01T00:00:00.0000000' AS DateTime2), 12, CAST(N'2024-02-13T19:46:16.1312974' AS DateTime2), CAST(N'2024-02-13T23:57:23.2797305' AS DateTime2))
+GO
+ALTER TABLE [dbo].[Students]  WITH CHECK ADD  CONSTRAINT [FK_Students_Classes_ClassId] FOREIGN KEY([ClassId])
+REFERENCES [dbo].[Classes] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Students] CHECK CONSTRAINT [FK_Students_Classes_ClassId]
+GO
